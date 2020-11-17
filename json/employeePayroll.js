@@ -48,7 +48,11 @@ class EmployeePayrollData{
         return this._startDate;
     }
     set startDate(startDate){
-        this._startDate = startDate
+        let newDate = new Date(startDate[2],startDate[1],startDate[0]);
+        let startDateCompare = dates.compare(newDate,new Date());
+        if(startDateCompare<=0) this._startDate = newDate;
+        else throw 'Start Date incorrect';
+    }
     }
     toString(){
         const options = { year: 'numeric',month: 'long',day: 'numeric',weekday:'long'}
@@ -68,4 +72,67 @@ salary.addEventListener('input',function(){
 function save(){
     let name = document.getElementById(name).value;
     let gender = document.getElementById(gender).value;
+}
+let employees=new Array();
+let employeeData = new EmployeePayrollData();
+
+function save() {
+    try {
+        const output = document.querySelector('.salary-output');
+
+        let names = document.getElementById('name').value;
+        let nameRegex = RegExp('^[A-Z]{1}[a-z]{3,}$')
+        if(nameRegex.test(names)) employeeData.name=names;
+        else throw "Name is Incorrect!";
+
+        employeeData.profilePic = getRadioValue(document.getElementsByName('profile'));
+        employeeData.gender = getRadioValue(document.getElementsByName('gender'));
+        employeeData.department = getCheckBoxValue(document.getElementsByClassName('checkbox'));
+        employeeData.salary = output.textContent;
+
+        let start=new Array();
+        start.push(document.getElementById('day').value);
+        start.push(document.getElementById('month').value);
+        start.push(document.getElementById('year').value);
+        let newDate = new Date(start[2],start[1],start[0]);
+        if(newDate<=new Date()) employeeData.startDate = newDate;
+        else throw 'Start Date incorrect';
+
+        employeeData.notes = document.getElementById('notes').value;
+        console.log(employeeData);
+    }
+    catch (exception) {
+        console.error(exception);
+    }
+    employees.push(employeeData);
+    console.log(employees);
+    createAndUpdateStorage(employeeData);
+}
+
+function getRadioValue(radios) {
+    for (var i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            return radios[i].value;
+        }
+    }
+}
+function getCheckBoxValue(boxes) {
+    let boxlist = new Array();
+    for (var i = 0; i < boxes.length; i++) {
+        if (boxes[i].checked) {
+            boxlist.push(boxes[i].value)
+        }
+    }
+    return boxlist;
+}
+
+function createAndUpdateStorage(employeeData){
+    let employeePayrollList = JSON.parse(localStorage.getItem("EmployeePayrollList"));
+    if(employeePayrollList!=undefined){
+        employeePayrollList.push(employeeData);
+    }else{
+        employeePayrollList=[employeeData];
+    }
+    console.log(employeePayrollList);
+    localStorage.setItem("EmployeePayrollList",JSON.stringify(employeePayrollList));
 }
