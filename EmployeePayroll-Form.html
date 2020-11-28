@@ -1,4 +1,3 @@
-  
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/employeePayroll.css">
-    <script type="text/javascript" src="json/employeePayroll.js"></script>
+    <script type="text/javascript" src="js/employeePayroll.js"></script>
     <title>Employee Payroll Form</title>
 </head>
 <body>
@@ -14,7 +13,7 @@
         <div class="logo-content">
             <img src="assets/images/logo.png" alt="">
             <div>
-                <span class="emp-text">EMPLOYEE</span>
+                <span class="emp-text">EMPLOYEE</span><br>
                 <span class="emp-text emp-payroll">PAYROLL</span>
             </div>
         </div>
@@ -30,19 +29,19 @@
                  <label class="label text" for="profile">Profile Image</label>
                   <div class="profile-radio-content">
              <label>
-                <input type="radio" id="profile1" name="profile" value="assets/profile-images/Ellipse -3.png" required>
+                <input type="radio" id="profile1" name="profile" value="../assets/profile-images/Ellipse -3.png" required>
                 <img class="profile" id='image1' src="assets/profile-images/Ellipse -3.png">
              </label>
               <label>
-                <input type="radio" id="profile2" name="profile" value="assets/profile-images/Ellipse 1.png" required>
+                <input type="radio" id="profile2" name="profile" value="../assets/profile-images/Ellipse 1.png" required>
                 <img class="profile" id='image2' src="assets/profile-images/Ellipse 1.png">
             </label>
             <label>
-                <input type="radio" id="profile3" name="profile" value="assets/profile-images/Ellipse -5.png" required>
-                <img class="profile" id='image3' src="assets/profile-images/Ellipse -5.png">
+                <input type="radio" id="profile3" name="profile" value="../assets/profile-images/Ellipse -1.png" required>
+                <img class="profile" id='image3' src="assets/profile-images/Ellipse -1.png">
             </label>
             <label>
-                <input type="radio" id="profile4" name="profile" value="assets/profile-images/Ellipse -8.png" required>
+                <input type="radio" id="profile4" name="profile" value="../assets/profile-images/Ellipse -8.png" required>
                 <img class="profile" id='image4' src="assets/profile-images/Ellipse -8.png">
             </label>
         </div>
@@ -66,17 +65,17 @@
             <input class="checkbox" type="checkbox" id="finance" name="finance" value="Finance">
             <label class="text" for="sales">Finance</label>
             <input class="checkbox" type="checkbox" id="engineer" name="engineer" value="Engineer">
-            <label class="text" for="sales">Engineer</label>
+            <label class="text" for="sales">Others</label>
         </div>
     </div>
     <div>
         <div class="row-content">
-            <label class="label text" for="salary">Choose your salary</label>
-            <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000" type="text">
+            <label class="label text" for="salary">Choose your salary:</label>
+            <input class="input" type="range" name="salary" id="salary" min="300000" max="500000" step="100" value="400000" type="text" oninput="updateSalary()">
             <output class="salary-output text" for="salary">400000</output>
         </div>
     </div>
-    <div>
+    <div class="row-content">
         <label class="label text" for="startDate">Start Date</label>
         <div>
             <select id="day" name="Day">
@@ -134,20 +133,19 @@
                 <option value="2016">2016</option>
             </select>
         </div>
-        <div class="row-content">
-            <label class="label text" for="notes">Notes</label>
-            <textarea id="notes" class="input" name="Notes" placeholder="" style="height:100px"></textarea>
-        </div>
-        <div class="buttonParent">
-            <a href="./home.html" class="resetButton button cancelButton">Cancel</a>
-            <div class="submit-reset">
-                <button type="reset" class="button resetButton" id="resetButton">Reset</button>
-                <button type="submit" class="button submitButton" id="submitButton">Submit</button>
-            </div>
+    </div>
+    <div class="row-content">
+        <label class="label text" for="notes">Notes</label>
+        <textarea id="notes" class="input" name="Notes" placeholder="notes:" style="height:100px"></textarea>
+    </div>
+    <div class="buttonParent">
+        <a href="./AppHomePage.html" class="resetButton button cancelButton">Cancel</a>
+        <div class="submit-reset">
+            <button type="reset" class="button resetButton" id="resetButton">Reset</button>
+            <button type="submit" class="button submitButton" id="submitButton">Submit</button>
         </div>
     </div>
 </form>
 </div>
-<script src="json/employeePayroll.js"></script>
 </body>
 </html>
