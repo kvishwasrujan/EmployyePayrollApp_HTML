@@ -19,12 +19,14 @@ window.addEventListener('DOMContentLoaded',(event)=>{
     salary.addEventListener('input',function(){
         output.textContent = salary.value;
     });
-    
+    /*
     const day = document.getElementById("day").value;
     const month = document.getElementById("month").value;
     const year = document.getElementById("year").value;
     let dateString = year+"-"+month+"-"+day+"T23:59:00Z";
     date = new Date(dateString);
+    */
+   //TODO
 });
 const save = ()=>{
     try{
@@ -54,16 +56,16 @@ const createEmployeePayroll = ()=>{
     }
     employeePayrollData.profilePic=getSelectedValues('[name=profile]').pop();
     employeePayrollData.gender=getSelectedValues('[name=gender]').pop();
-    employeePayrollData.department=getSelectedValues('[name=department]').pop();
-    employeePayrollData.salary=getSelectedValues('[name=salary]').pop();
-    employeePayrollData.note=getSelectedValues('[name=note]').pop();
+    employeePayrollData.department=getSelectedValues('[name=department]');
+    employeePayrollData.salary=getSelectedValues('[name=salary]');
+    employeePayrollData.note=getSelectedValues('[name=note]');
     let date = getInputValueById('#day')+" "+getInputValueById('#month')+" "+getInputValueById('#year');
     employeePayrollData.date = Date.parse(date);
     alert(employeePayrollData.toString())
     return employeePayrollData
 }
 const getSelectedValues=(propertyValue)=>{
-    let allItems = document.querySelectorAll(propertyValue)
+    let allItems = document.querySelectorAll(propertyValue)//not query selector
     let selItems = new Array();
     allItems.forEach(item=>{
         if(item.checked)
@@ -77,5 +79,30 @@ const getInputValueById = (id)=>{
 }
 const getInputElementValue = (id)=>{
     let value = document.getElementById(id).value
+    setValue('#name','');
     return value
+}
+const resetForm = ()=>{
+    unsetSelectedValues('[name=profile]')
+    unsetSelectedValues('[name=gender]')
+    unsetSelectedValues('[name=department]')
+    setValue('#salary','')
+    setValue('#notes','')
+    setValue('#day','1')
+    setValue('#month','January')
+    setValue('#year','2020')
+}
+const unsetSelectedValues = (propertyValue)=>{
+    let allItems = document.querySelectorAll(propertyValue)
+    allItems.forEach(item=>{
+        item.checked=false;
+    })
+}
+const setTextValue=(id,value)=>{
+    const element = document.querySelector(id)
+    element.textContent=value;
+}
+const setValue = (id,value)=>{
+    const element = document.querySelector(id)
+    element.value=value;
 }

@@ -54,7 +54,7 @@ class EmployeePayrollData{
            }
         else{
             //alert("Incorrect date");
-            throw "Date is incorrect: "//+startDate.toLocaleDateString("en-US");
+            throw "Date is incorrect: ";//+startDate.toLocaleDateString("en-US");
         }
     }
     toString(){

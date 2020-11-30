@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap">
-    <link rel="stylesheet" type="text/css" href="css/homepage.css">
-    <title>Employee Payroll App</title>
-    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/homepage.css">
+    <title>Employee Payroll</title>
 </head>
-
 <body>
+    <!--UC1-->
     <header class="header-content header">
         <div class="logo-content">
-            <img src="assets/images/logo.png" alt="logo">
+            <img src="assets/images/logo.png" alt="">
             <div>
                 <span class="emp-text">EMPLOYEE</span><br>
                 <span class="emp-text emp-payroll">PAYROLL</span>
@@ -22,47 +20,23 @@
         </div>
     </header>
     <div class="main-content">
+        <!---UC2--->
         <div class="header-content">
             <div class="emp-detail-text">
-                Employee Details
-                <div class="emp-count">10</div>
+                Employee Details <div class="emp-count">10</div>
             </div>
-            <a href="EmployeePayroll-Form.html" class="add-button">
-                <img src="assets/icons/add-24px.svg" alt="">Add User</a>
+            <a href="EmployeePayroll-Form.html" class="add-button"><img src="../assets/icons/add-24px.svg" alt="">Add user</a>
+        </div><!---header content--->
+        <div class="table-main">
+            <table id = "table-display" class="table">
+                <!--UC3-->
+                
+            </table>
         </div>
-    <div class="table-main">
-    <table id="table-display" class="table">
-        <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Department</th>
-            <th>Salary</th>
-            <th>Start Date</th>
-            <th>Actions</th>
-        </tr>
-        <tr>
-            <td>
-                <img src="assets/profile-images/Ellipse -5.png" alt="" class="profile">
-            </td>
-            <td>Prabhas</td>
-            <td>Male</td>
-            <td>
-                <div class="dept-label">HR</div>
-                <div class="dept-label">Finance</div>
-            </td>
-            <td>2000000</td>
-            <td>17 Nov 2020</td>
-            <td>
-                <img id="1" onclick="remove(this)" src="assets/icons/delete-black-18dp.svg" alt="Delete">
-                <img id="1" onclick="update(this)" src="assets/icons/create-black-18dp.svg" alt="Edit">
-            </td>
-        </tr>
-    </table>
     </div>
-    </table>
-    </div>
-    </div>
+    <script src="js/home.js"></script>
+    <script src="js/utility.js"></script>
+    <script src="js/site_properties.js"></script>
+    <script src="js/employeePayroll.js"></script>
 </body>
-
 </html>
