@@ -1,4 +1,15 @@
 class EmployeePayrollData{
+    /*
+    constructor(...params){
+        this.name = params[0];
+        this.image = params[1];
+        this.gender = params[2];
+        this.department = params[3];
+        this.salary = params[4];
+        this.startDate = params[5];
+        this.notes = params[6];
+    }
+    */
     get id(){
         return this._id;
     }
@@ -54,17 +65,20 @@ class EmployeePayrollData{
            }
         else{
             //alert("Incorrect date");
-            throw "Date is incorrect: ";//+startDate.toLocaleDateString("en-US");
+            throw "Date is incorrect: "//+startDate.toLocaleDateString("en-US");
         }
     }
     toString(){
-        const options = { year: 'numeric',month: 'long',day: 'numeric',weekday:'long'}
+        const options = { year: 'numeric',month: 'numeric',day: 'numeric'}
         const empDate = this.startDate == undefined ?"undefined":this.startDate.toLocaleDateString("en-US",options);
         return "id="+this.id+" name="+this.name+" salary="+this.salary+" gender="+this.gender+" start date:"+empDate+" profile pic="+this.profilePic+" gender="+this.gender+" department:"+this.department;
     }
 
 }
+
+/*
 function save(){
     let name = document.getElementById(name).value;
     let gender = document.getElementById(gender).value;
 }
+*/
